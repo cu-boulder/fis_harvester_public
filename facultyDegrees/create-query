@@ -1,0 +1,63 @@
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>   
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>   
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>   
+PREFIX core: <http://vivoweb.org/ontology/core#>   
+PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#>   
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>   
+PREFIX obo: <http://purl.obolibrary.org/obo/> 
+PREFIX cub: <http://vivo.colorado.edu/individual/>
+
+CONSTRUCT  {
+
+    ?FacultyMember core:relatedBy ?EducationalTraining .
+    ?FacultyMember obo:RO_0000056 _:EducationalProcess .
+
+    ?EducationalTraining rdf:type core:AwardedDegree .
+    ?EducationalTraining rdf:type core:Relationship .
+    ?EducationalTraining core:relates ?FacultyMember .
+    ?EducationalTraining core:relates ?AcademicDegree .
+    ?EducationalTraining core:assignedBy ?University .
+    ?EducationalTraining obo:RO_0002353 _:EducationalProcess .
+    ?EducationalTraining core:rank ?rank .
+
+    ?University rdf:type core:University .
+    ?University obo:RO_0000056 _:EducationalProcess .
+
+    ?AcademicDegree rdf:type <http://www.w3.org/2004/02/skos/core#Concept> .
+    ?AcademicDegree rdf:type <http://www.w3.org/2002/07/owl#Thing> .
+    ?AcademicDegree rdf:type core:AcademicDegree .
+    ?AcademicDegree <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> core:AcademicDegree .
+    
+    _:EducationalProcess rdf:type core:EducationalProcess .
+    _:EducationalProcess obo:RO_0000057 ?FacultyMember .
+    _:EducationalProcess obo:RO_0000057 ?University .
+    _:EducationalProcess core:dateTimeInterval _:DateTimeInterval .
+    _:EducationalProcess obo:RO_0002234 ?EducationalTraining .
+
+    _:DateTimeValue rdf:type core:DateTimeValue . 
+    _:DateTimeValue core:dateTime ?year . 
+    _:DateTimeValue core:dateTimePrecision core:yearPrecision . 
+    _:DateTimeInterval rdf:type core:DateTimeInterval . 
+    _:DateTimeInterval core:dateTimeValue _:DateTimeValue . 
+    _:DateTimeInterval core:end _:DateTimeValue . 
+}   WHERE { 
+     ?EducationalTraining cub:ws_fm2dg_RANK ?rank . 
+     ?EducationalTraining rdf:type cub:DEGREES . 
+     { 
+        ?EducationalTraining cub:ws_fm2dg_URI ?acaDegIRI .
+        BIND(IRI(?acaDegIRI) AS ?AcademicDegree) 
+     } 
+     OPTIONAL { 
+        ?EducationalTraining cub:ws_fm2dg_FISID ?personIRI . 
+        BIND(IRI(?personIRI) as ?FacultyMember) 
+     } 
+     OPTIONAL   { 
+        ?EducationalTraining cub:ws_fm2dg_UNITIDCODE ?unitID . 
+        BIND(iri(?unitID) AS ?University) . 
+     } 
+     OPTIONAL   { 
+       ?EducationalTraining cub:ws_fm2dg_YEAR ?year . 
+       BIND(iri(concat(str(?EducationalTraining), 'dtv')) AS ?DateTimeValue) . 
+       BIND(iri(concat(str(?EducationalTraining), 'dti')) AS ?DateTimeInterval) . 
+     } 
+ }  

@@ -1,0 +1,34 @@
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX core: <http://vivoweb.org/ontology/core#>
+PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX cub: <http://vivo.colorado.edu/individual/>
+PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#>
+
+CONSTRUCT  {
+
+ ?person core:relatedBy ?position .
+ ?dept core:relatedBy ?position .
+
+ ?position rdfs:label ?label .
+ ?position core:relates ?dept .
+ ?position core:relates ?person .
+ ?position rdf:type core:Position .
+ ?position rdf:type ?positionClass .
+ ?position vitro:mostSpecificType ?positionClass .
+ ?position core:rank ?rank .
+
+}
+WHERE  {
+ ?position cub:ws_fm2p_RANK ?rank .
+ ?position rdf:type cub:POSITION .
+ ?position cub:ws_fm2p_NAME ?label .
+ ?position cub:ws_fm2p_TYPE ?type .
+ BIND(URI(?type) AS ?positionClass) .
+ ?position cub:ws_fm2p_DEPTID ?deptIRI .
+ BIND(URI(?deptIRI) AS ?dept) .
+ ?position cub:ws_fm2p_FISID ?personIRI .
+ BIND(URI(?personIRI) AS ?person) .
+}

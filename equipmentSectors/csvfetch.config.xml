@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2010-2011 VIVO Harvester Team. For full list of contributors, please see the AUTHORS file provided.
+  All rights reserved.
+  This program and the accompanying materials are made available under the terms of the new BSD license which accompanies this distribution, and is available at http://www.opensource.org/licenses/bsd-license.html
+-->
+<Task>
+	<!--INPUT -->
+	<Param name="file">/usr/local/vivo/dat-files/cub-new-data/fis_equipmentSectors.dat</Param>	
+	<!--SEPERATOR -->
+	<Param name="seperated">|</Param>	
+	<!--OUTPUT -->
+	<Param name="output">harvested-data.model.xml</Param>
+	<!--NAMESPACE -->
+	<Param name="namespace">http://vivo.colorado.edu/individual/</Param>
+	<!--TYPE-->
+	<Param name="type">EQUIPMENT</Param>
+	<!--PropertyPrefix -->
+	<Param name="propertyPrefix">ws_eqsectors_</Param>
+	<!--URI Parameter-->
+	<Param name="uriParameter">ID</Param>
+	<!--URI Prefix-->
+	<Param name="uriPrefix">equipment_</Param>
+</Task>

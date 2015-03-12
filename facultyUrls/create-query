@@ -1,0 +1,23 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>  
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX core: <http://vivoweb.org/ontology/core#> 
+PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#> 
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>   
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX cub: <http://vivo.colorado.edu/individual/>
+
+CONSTRUCT { 
+ ?vcard vcard:hasURL ?vcard_url .
+ ?vcard_url vcard:url ?url .
+ ?vcard_url rdf:type vcard:URL .  
+ ?vcard_url rdfs:label "Webpage" .  
+ ?vcard_url vitro:linkDisplayRank "-1" . } 
+WHERE { 
+ ?link a cub:URLS .
+ ?link cub:ws_fm2url_WEBPAGEURL ?url .
+ ?link cub:ws_fm2url_FISIDREAL ?fisId .
+ BIND(IRI(?personIRI) AS ?person) .
+ BIND(URI(CONCAT('http://vivo.colorado.edu/individual/vcard_', ?fisId)) AS ?vcard)
+ BIND(URI(CONCAT('http://vivo.colorado.edu/individual/vcard_url_',?fisId)) AS ?vcard_url)
+}

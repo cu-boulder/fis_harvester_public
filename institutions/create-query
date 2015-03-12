@@ -1,0 +1,21 @@
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#> 
+PREFIX core: <http://vivoweb.org/ontology/core#> 
+PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#>  
+PREFIX cub: <http://vivo.colorado.edu/individual/>
+
+CONSTRUCT { 
+ ?institution rdf:type core:University .  
+ ?institution vitro:mostSpecificType core:University .
+ ?institution rdf:type <http://www.w3.org/2002/07/owl#Thing> .
+ ?institution rdf:type <http://xmlns.com/foaf/0.1/Organization> .
+ ?institution rdf:type <http://xmlns.com/foaf/0.1/Agent> .
+ ?institution rdfs:label ?label .  
+ ?institution vlocal:unitIdCode ?unitId .  
+ ?institution vitro:moniker "University" . 
+} 
+WHERE {  
+  ?institution cub:ws_i_NAME ?label .
+  ?institution cub:ws_i_UNITIDCODE ?unitId .
+}

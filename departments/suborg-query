@@ -1,0 +1,13 @@
+PREFIX core: <http://vivoweb.org/ontology/core#> 
+PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#> 
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX cub: <http://vivo.colorado.edu/individual/>
+
+Construct {
+  ?dept obo:BFO_0000050 ?subdept .
+  ?subdept obo:BFO_0000051 ?dept .
+}
+Where {    
+  ?dept cub:ws_d_ORGANIZATIONWITHIN ?orgwithin .
+  BIND(URI(CONCAT("http://vivo.colorado.edu/individual/deptid_",?orgwithin)) AS ?subdept)
+}  

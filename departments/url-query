@@ -1,0 +1,22 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>  
+PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#>  
+PREFIX vivo: <http://vivoweb.org/ontology/core#>   
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX cub: <http://vivo.colorado.edu/individual/>
+
+CONSTRUCT {
+  ?dept obo:ARG_2000028 ?orgvcard .
+  ?orgvcard rdf:type vcard:Kind .
+  ?orgvcard vitro:mostSpecificKind vcard:Kind .
+  ?orgvcard vcard:hasURL ?orgURL .
+  ?orgURL rdf:type vcard:URL.
+  ?orgURL rdf:type <http://www.w3.org/2002/07/owl#Thing> .
+  ?orgURL vcard:url ?url .
+} 
+Where {
+  ?dept cub:ws_d_DEPTID ?deptId .
+  ?dept cub:ws_d_WEBPAGE ?url .
+  BIND(URI(CONCAT("http://vivo.colorado.edu/individual/vcard_org_",?deptId,"_URL")) AS ?orgURL)
+  BIND(URI(CONCAT("http://vivo.colorado.edu/individual/vcard_org_",?deptId)) AS ?orgvcard)
+}

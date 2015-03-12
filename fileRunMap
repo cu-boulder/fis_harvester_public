@@ -1,0 +1,16 @@
+fis_departments.dat,../departments,6
+fis_faculty_member_countries.dat,../facultyCountries,5
+fis_faculty_member_degrees.dat,../facultyDegrees,9
+fis_faculty_member_positions.dat,../facultyPositions,7
+fis_faculty_member_regions.dat,../facultyRegions,4
+fis_faculty_member_subject_areas.dat,../facultySubjectAreas,3
+fis_faculty_member_urls.dat,../facultyUrls,11
+fis_faculty_members.dat,../faculty,1
+fis_institutions.dat,../institutions,8
+fis_subject_areas.dat,../subjectAreas,2
+fis_faculty_member_research_overviews.dat,../facultyResearchOverviews,10
+fis_equipment.dat,../equipment,11
+fis_equipmentLabels.dat,../equipmentLabels,12
+fis_equipmentSectors.dat,../equipmentSectors,13
+fis_equipmentTests.dat,../equipmentTests,14
+fis_industrySectors.dat,../industrySectors,15
