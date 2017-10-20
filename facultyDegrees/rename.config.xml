@@ -12,7 +12,7 @@
 	<Param name="outputModelOverride">modelName=http://vitro.mannlib.cornell.edu/a/graph/ws_fm2dg_construct</Param>
 	
 	<!-- Namespace -->
-	<Param name="namespaceEtc">http://vivo.colorado.edu/individual/</Param>
+	<Param name="namespaceEtc">https://experts.colorado.edu/individual/</Param>
 	<Param name="prefix">dt_</Param>
 	
 	<!--  OPTIONS -->

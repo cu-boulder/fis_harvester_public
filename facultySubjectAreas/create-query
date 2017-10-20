@@ -1,13 +1,13 @@
 PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX core: <http://vivoweb.org/ontology/core#>  
-PREFIX cub: <http://vivo.colorado.edu/individual/>
+PREFIX cub: <https://experts.colorado.edu/individual/>
 
-CONSTRUCT { 
+Construct { 
  ?person core:hasResearchArea ?subject .
  ?subject core:researchAreaOf ?person .
 } 
-WHERE { 
+Where { 
  ?person cub:ws_fm2sa_HASRESEARCHAREA ?descRA .
  ?subject rdfs:label ?desc .
  FILTER((?desc)=(?descRA))

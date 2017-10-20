@@ -17,160 +17,167 @@ PREFIX scires: <http://vivoweb.org/ontology/scientific-research#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
 PREFIX j.1: <http://vitro.mannlib.cornell.edu/ns/vitro/public#> 
 PREFIX core: <http://vivoweb.org/ontology/core#> 
-PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#>  
+PREFIX vlocal: <https://experts.colorado.edu/ontology/vivo-fis#>  
 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 PREFIX arg: <http://purl.obolibrary.org/obo/>
-PREFIX equip: <http://vivo.colorado.edu/ontology/equipment#>
+PREFIX equip: <https://experts.colorado.edu/ontology/equipment#>
 
 Construct { 
  ?equipment rdf:type ?type .
- ?equipment vitro:mostSpecificType ?type .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#equipId> ?id .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#description> ?desc .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#useType> ?usetype .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#subtype> ?subtype .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#hours> ?hours .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#email> ?email .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#telephone> ?telephone .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#url> ?url .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#ownedBy> ?owner .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#trainingrequired> ?training .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#lab> ?lab .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#application> ?application .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#department> ?department .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#protocol> ?proto .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#serviceFeeUrl> ?servicefeeurl .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#additionalName> ?addname .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#internalUse> ?intuse .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#equipId> ?id .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#description> ?desc .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#useType> ?usetype .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#subtype> ?subtype .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#generalAvailability> ?extuse .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#hours> ?hours .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#email> ?email .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#telephone> ?telephone .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#url> ?url .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#trainingrequired> ?training .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#lab> ?lab .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#department> ?department .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#protocol> ?proto .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#serviceFeeUrl> ?servicefeeurl .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#additionalName> ?addname .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#internalUse> ?intuse .
  ?department ?hasequip ?equipment .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#researcher> ?researcher .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#technician> ?technician .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#schedule> ?sched .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#industryArea> ?industryArea .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#labManager> ?labManager .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#principalInvestigator> ?principalInvestigator .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#keySpecifications> ?keySpecifications .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#restrictionsDescription> ?restrictionsDescription .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#restrictions> ?restrictions .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#exportControlled> ?exportControlled .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#consultingAvailable> ?consultingAvailable .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#testsAvailable> ?testsAvailable .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#potentialAreasOfUse> ?potentialAreasOfUse .
- ?equipment <http://vivo.colorado.edu/ontology/equipment#group> ?group .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#researcher> ?researcher .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#technician> ?technician .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#schedule> ?sched .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#industryArea> ?industryArea .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#labManager> ?labManager .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#principalInvestigator> ?principalInvestigator .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#keySpecifications> ?keySpecifications .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#restrictionsDescription> ?restrictionsDescription .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#restrictions> ?restrictions .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#exportControlled> ?exportControlled .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#consultingAvailable> ?consultingAvailable .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#testsAvailable> ?testsAvailable .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#potentialAreasOfUse> ?potentialAreasOfUse .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#group> ?group .
  ?equipment core:freetextKeyword ?keywords .
  ?equipment rdfs:label ?name .   
- ?equipment <http://vivo.colorado.edu/ontology/equipment#type> ?t2 .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#type> ?t2 .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#analysis> ?analysis .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#makemodel> ?makemodel .
+ ?equipment <https://experts.colorado.edu/ontology/equipment#location> ?location .
  }
 Where {  
- ?equipment <http://vivo.colorado.edu/individual/ws_eq_ID> ?id .
- ?equipment <http://vivo.colorado.edu/individual/ws_eq_NAME> ?name .
- OPTIONAL { ?equipment <http://vivo.colorado.edu/individual/ws_eq_TYPE> "Instrument" .
+ ?equipment <https://experts.colorado.edu/individual/ws_eq_ID> ?id .
+ ?equipment <https://experts.colorado.edu/individual/ws_eq_NAME> ?name .
+ OPTIONAL { ?equipment <https://experts.colorado.edu/individual/ws_eq_TYPE> "Instrument" .
             BIND(URI(core:Equipment) AS ?type)
             BIND(URI(core:hasEquipment) AS ?hasequip)
           } 
  OPTIONAL {
-            ?equipment <http://vivo.colorado.edu/individual/ws_eq_TYPE> "Service" .
+            ?equipment <https://experts.colorado.edu/individual/ws_eq_TYPE> "Service" .
             BIND(URI(equip:AnalyticalService) AS ?type)
             BIND(URI(equip:hasService) AS ?hasequip)
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_TYPE2> ?t2 .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_ITEMTYPE> ?t2 .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_HOURS> ?hours .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_HOURS> ?hours .
  }
  OPTIONAL {
-     ?equipment  <http://vivo.colorado.edu/individual/ws_eq_DESCRIPTION> ?desc .
+     ?equipment  <https://experts.colorado.edu/individual/ws_eq_DESCRIPTION> ?desc .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_CATEGORY> ?category .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_CATEGORY> ?category .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_USETYPE> ?usetype .
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_TESTINGPERFORMEDBY> ?usetype .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_TRAININGREQUIRED> ?training .
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_TRAININGREQUIRED> ?training .
  }
  OPTIONAL{
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_LAB> ?lab . 
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_LAB> ?lab . 
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_DEPT> ?dept .
-    BIND(URI(CONCAT("http://vivo.colorado.edu/individual/deptid_", ?dept)) AS ?department)
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_DEPT> ?dept .
+    BIND(URI(CONCAT("https://experts.colorado.edu/individual/deptid_", ?dept)) AS ?department)
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_HOWTOSCHEDULE> ?sched .
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_ACCESSPROCEDURES> ?sched .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_RESEARCHER> ?researcher .
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_RESEARCHER> ?researcher .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_TECHNICIAN> ?technician .
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_TECHNICIAN> ?technician .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_APPLICATIONS> ?application .
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_EMAILCONTACT> ?email .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_EMAILCONTACT> ?email .
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_CONTACTPHONENUMBER> ?telephone .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_CONTACTPHONENUMBER> ?telephone .
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_WEBSITE> ?url .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_URL> ?url .
+    ?equipment <https://experts.colorado.edu/individual/ws_eq_KEYWORDS> ?keywords .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_KEYWORDS> ?keywords .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_SUBTYPE> ?subtype .
  }
  OPTIONAL {
-    ?equipment <http://vivo.colorado.edu/individual/ws_eq_OWNER> ?owner .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_INDUSTRYAREA> ?industryArea .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_SUBTYPE> ?subtype .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_TECHNICALPRIMARYCONTACT> ?labManager .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_INDUSTRYAREA> ?industryArea .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_PRINCIPALINVESTIGATOR> ?principalInvestigator .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_LABMANAGER> ?labManager .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_KEYSPECIFICATIONS> ?keySpecifications .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_PRINCIPALINVESTIGATOR> ?principalInvestigator .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_RESTRICTIONS> ?restrictions .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_KEYSPECIFICATIONS> ?keySpecifications .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_RESTRICTIONSDESCRIPTION> ?restrictionsDescription .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_RESTRICTIONS> ?restrictions .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_EXPORTCONTROLLED> ?exportControlled .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_RESTRICTIONSDESCRIPTION> ?restrictionsDescription .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_TESTSAVAILABLE> ?testsAvailable .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_EXPORTCONTROLLED> ?exportControlled .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_CONSULTINGAVAILABLE> ?consultingAvailable .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_TESTSAVAILABLE> ?testsAvailable .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_POTENTIALAREASOFUSE> ?potentialAreasOfUse .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_CONSULTINGAVAILABLE> ?consultingAvailable .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_GROUP> ?group .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_POTENTIALAREASOFUSE> ?potentialAreasOfUse .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_PROTOCOL> ?proto .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_GROUP> ?group .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_INFORMATIONSHEET> ?servicefeeurl .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_PROTOCOL> ?proto .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_ADDITIONALNAME> ?addname .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_SERVICEFEEURL> ?servicefeeurl .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_AVAILABLETO> ?intuse .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_ADDITIONALNAME> ?addname .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_GENERALAVAILABILITY> ?extuse .
  }
  OPTIONAL {
-     ?equipment <http://vivo.colorado.edu/individual/ws_eq_CUINTERNALUSEONLY> ?intuse .
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_ANALYSIS> ?analysis .
+ }
+ OPTIONAL {
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_MAKEMODEL> ?makemodel .
+ }
+ OPTIONAL {
+     ?equipment <https://experts.colorado.edu/individual/ws_eq_LOCATION> ?location .
  }
 }

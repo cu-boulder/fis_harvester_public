@@ -1,0 +1,49 @@
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX core: <http://vivoweb.org/ontology/core#>
+PREFIX vlocal: <https://experts.colorado.edu/ontology/vivo-fis#>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX cub: <https://experts.colorado.edu/individual/>
+
+CONSTRUCT {  
+  ?recip rdf:type <http://vivoweb.org/ontology/core#AwardReceipt> .
+  ?recip vitro:mosSpecificType <http://vivoweb.org/ontology/core#AwardReceipt> .
+  ?recip rdf:type <http://www.w3.org/2002/07/owl#Thing> .
+  ?recip rdfs:label ?name .
+  ?recip core:relates ?fisid .
+  ?recip core:relates ?awardid .
+  ?awardid core:relatedBy ?recip .
+  ?fisid core:relatedBy ?recip .
+  ?recip core:dateTimeValue _:dtv .
+  _:dtv core:dateTime ?dtf .
+  _:dtv rdf:type core:DateTimeValue .
+  _:dtv core:dateTimePrecision <http://vivoweb.org/ontology/core#yearPrecision> .
+  ?recip core:assignedBy ?orgid .
+  ?orgid core:assigns ?recip .
+  ?orgid core:assigns ?awardid .
+  ?awardid rdf:type ?spectype .
+}  
+Where {  
+  ?recip <https://experts.colorado.edu/individual/ws_fm_awr_FISID> ?fid .  
+  ?recip <https://experts.colorado.edu/individual/ws_fm_awr_AWARDID> ?aid .  
+  ?recip <https://experts.colorado.edu/individual/ws_fm_awr_LASTFIRSTNAME> ?fname .
+  ?recip <https://experts.colorado.edu/individual/ws_fm_awr_AWARDNAME> ?aname .
+  ?recip <https://experts.colorado.edu/individual/ws_fm_awr_AWARDORGID> ?aorg .
+  ?recip <https://experts.colorado.edu/individual/ws_fm_awr_AWARDYEAR> ?year . 
+  OPTIONAL { 
+        ?recip  <https://experts.colorado.edu/individual/ws_fm_awr_INTERNALEXTERNAL> "E"
+        BIND(URI(cub:ExternalAwardOrHonor) AS ?spectype)
+  }
+  OPTIONAL {
+        ?recip <https://experts.colorado.edu/individual/ws_fm_awr_INTERNALEXTERNAL> "I"
+        BIND(URI(cub:InternalAwardOrHonor) AS ?spectype)
+  }
+  BIND(CONCAT(?year,"-01-01T00:00:00") AS ?dtf)
+  BIND(URI(?fid) AS ?fisid)
+  BIND(URI(?aid) AS ?awardid)
+  BIND(URI(?aorg) AS ?orgid)
+  BIND(CONCAT("(",?fname," - ",?year,") -- ",?aname) AS ?name)
+}

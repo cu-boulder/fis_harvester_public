@@ -17,12 +17,12 @@ PREFIX scires: <http://vivoweb.org/ontology/scientific-research#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
 PREFIX j.1: <http://vitro.mannlib.cornell.edu/ns/vitro/public#> 
 PREFIX core: <http://vivoweb.org/ontology/core#> 
-PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#>  
+PREFIX vlocal: <https://experts.colorado.edu/ontology/vivo-fis#>  
 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 PREFIX arg: <http://purl.obolibrary.org/obo/>
-PREFIX cub: <http://vivo.colorado.edu/individual/>
+PREFIX cub: <https://experts.colorado.edu/individual/>
 
-CONSTRUCT {  ?person <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+Construct {  ?person <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
  ?person arg:ARG_2000028 ?vcard .
  ?person <http://www.w3.org/2000/01/rdf-schema#label> ?label .
  ?vcard vcard:hasEmail ?vcard_email.
@@ -48,14 +48,14 @@ CONSTRUCT {  ?person <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://x
  ?vcard_title rdf:type <http://www.w3.org/2006/vcard/ns#Communication> .
  ?vcard_title rdf:type <http://www.w3.org/2006/vcard/ns#Identification> .
  ?vcard_title vitro:mostSpecificType vcard:Title .
- ?person <http://vivo.colorado.edu/ontology/vivo-fis#fisId> ?fisId .
- ?person <http://vivo.colorado.edu/ontology/vivo-fis#uuid> ?uuid .
+ ?person <https://experts.colorado.edu/ontology/vivo-fis#fisId> ?fisId .
+ ?person <https://experts.colorado.edu/ontology/vivo-fis#uuid> ?uuid .
  ?person <http://vivoweb.org/ontology/core#freetextKeyword> ?keywords .
  ?person core:orcidId ?orcid .
  ?orcid rdf:type <http://www.w3.org/2002/07/owl#Thing> .
  ?orcid vitro:mostSpecificType <http://www.w3.org/2002/07/owl#Thing> .
  }
-WHERE {
+Where {
  ?person cub:ws_fm_LABEL ?label .
  optional { ?person cub:ws_fm_FIRSTNAME ?firstName . }
  optional { ?person cub:ws_fm_MIDDLENAME ?middleName . }
@@ -68,7 +68,7 @@ WHERE {
  OPTIONAL { ?person cub:ws_fm_ORCIDID ?orc .
             BIND(URI(?orc) AS ?orcid) }
  BIND(STRDT(?email, xsd:string) AS ?e)
- BIND(URI(CONCAT('http://vivo.colorado.edu/individual/vcard_', ?fisId)) AS ?vcard)
- BIND(URI(CONCAT('http://vivo.colorado.edu/individual/vcard_email_',?fisId)) AS ?vcard_email)
- BIND(URI(CONCAT('http://vivo.colorado.edu/individual/vcard_name_',?lastName,'.',?firstName,'_',?fisId)) AS ?vcard_name)
- BIND(URI(CONCAT('http://vivo.colorado.edu/individual/vcard_title_',?fisId)) AS ?vcard_title) }
+ BIND(URI(CONCAT('https://experts.colorado.edu/individual/vcard_', ?fisId)) AS ?vcard)
+ BIND(URI(CONCAT('https://experts.colorado.edu/individual/vcard_email_',?fisId)) AS ?vcard_email)
+ BIND(URI(CONCAT('https://experts.colorado.edu/individual/vcard_name_',?lastName,'.',?firstName,'_',?fisId)) AS ?vcard_name)
+ BIND(URI(CONCAT('https://experts.colorado.edu/individual/vcard_title_',?fisId)) AS ?vcard_title) }

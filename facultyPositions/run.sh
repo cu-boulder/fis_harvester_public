@@ -88,7 +88,7 @@ cp data/constructed-data ../backups/facultyPositions-data-last
 
 #Output some counts
 
-FAC=`cat data/constructed-data | grep '<rdf:Description rdf:about="http://vivo.uccs.edu/fisid_' | wc -l`
+FAC=`cat data/constructed-data | grep '<rdf:Description rdf:about="https://experts.colorado/individual/fisid_' | wc -l`
 POS=`cat data/constructed-data | grep 'positionForPerson' | wc -l`
 
 

@@ -13,7 +13,7 @@
 	<Param name="output">../vivo.model.xml</Param>
 	<Param name="outputOverride">modelName=http://vitro.mannlib.cornell.edu/a/graph/ws_fm2ro_import</Param>
 	<!--NAMESPACE -->
-	<Param name="namespace">http://vivo.colorado.edu/individual/</Param>
+	<Param name="namespace">https://experts.colorado.edu/individual/</Param>
 	<!--TYPE-->
 	<Param name="type">RESEARCHOVERVIEW</Param>
 	<!--PropertyPrefix -->

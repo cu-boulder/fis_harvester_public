@@ -1,13 +1,13 @@
-PREFIX cub: <http://vivo.colorado.edu/individual/>
+PREFIX cub: <https://experts.colorado.edu/individual/>
 
-CONSTRUCT {   
+Construct {   
   ?subject <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .   
   ?subject <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType>  <http://www.w3.org/2004/02/skos/core#Concept> .
   ?subject <http://www.w3.org/2000/01/rdf-schema#label> ?label .     
-  ?subject <http://vivo.colorado.edu/ontology/vivo-fis#spinId> ?spinId .     
+  ?subject <https://experts.colorado.edu/ontology/vivo-fis#spinId> ?spinId .     
   ?subject <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#moniker> ?moniker  
 }  
-WHERE {   
+Where {   
   ?subject cub:ws_sa_LABEL ?label .
   ?subject cub:ws_sa_SPINID ?spinId .
   optional { ?subject cub:ws_sa_MONIKER ?moniker . }

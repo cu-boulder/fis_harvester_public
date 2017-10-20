@@ -12,7 +12,7 @@
 	<!--OUTPUT -->
 	<Param name="output">harvested-data.model.xml</Param>
 	<!--NAMESPACE -->
-	<Param name="namespace">http://vivo.colorado.edu/individual/</Param>
+	<Param name="namespace">https://experts.colorado.edu/individual/</Param>
 	<!--TYPE-->
 	<Param name="type">REGION</Param>
 	<!--PropertyPrefix -->

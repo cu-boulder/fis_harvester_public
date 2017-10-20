@@ -85,7 +85,7 @@ cp data/constructed-data ../backups/equipment-data-last
 
 
 #Output some counts
-SEC=`cat data/constructed-data | grep 'Equipment' | wc -l`
-echo "Imported $SEC sectors of equipment"
+PEOPLE=`cat data/constructed-data | grep 'Equipment' | wc -l`
+echo "Imported $PEOPLE pieces of equipment"
 
 echo 'Harvest completed successfully'

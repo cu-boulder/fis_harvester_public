@@ -2,12 +2,12 @@ PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>   
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>   
 PREFIX core: <http://vivoweb.org/ontology/core#>   
-PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#>   
+PREFIX vlocal: <https://experts.colorado.edu/ontology/vivo-fis#>   
 PREFIX fn: <http://www.w3.org/2005/xpath-functions#>   
 PREFIX obo: <http://purl.obolibrary.org/obo/> 
-PREFIX cub: <http://vivo.colorado.edu/individual/>
+PREFIX cub: <https://experts.colorado.edu/individual/>
 
-CONSTRUCT  {
+Construct  {
 
     ?FacultyMember core:relatedBy ?EducationalTraining .
     ?FacultyMember obo:RO_0000056 _:EducationalProcess .
@@ -40,7 +40,7 @@ CONSTRUCT  {
     _:DateTimeInterval rdf:type core:DateTimeInterval . 
     _:DateTimeInterval core:dateTimeValue _:DateTimeValue . 
     _:DateTimeInterval core:end _:DateTimeValue . 
-}   WHERE { 
+}   Where { 
      ?EducationalTraining cub:ws_fm2dg_RANK ?rank . 
      ?EducationalTraining rdf:type cub:DEGREES . 
      { 

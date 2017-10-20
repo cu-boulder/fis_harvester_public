@@ -1,0 +1,6 @@
+SELECT count(*)
+WHERE
+{
+      ?degree <http://vivoweb.org/ontology/core#educationalTrainingOf> ?person
+}
+

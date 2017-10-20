@@ -17,19 +17,19 @@ PREFIX scires: <http://vivoweb.org/ontology/scientific-research#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
 PREFIX j.1: <http://vitro.mannlib.cornell.edu/ns/vitro/public#> 
 PREFIX core: <http://vivoweb.org/ontology/core#> 
-PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#>  
+PREFIX vlocal: <https://experts.colorado.edu/ontology/vivo-fis#>  
 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 PREFIX arg: <http://purl.obolibrary.org/obo/>
-PREFIX equip: <http://vivo.colorado.edu/ontology/equipment#>
+PREFIX equip: <https://experts.colorado.edu/ontology/equipment#>
 
-CONSTRUCT {
+Construct {
  ?equipment core:hasResearchArea ?subject .
  ?subject core:hasEquipment ?equipment .
 }
-WHERE {  
- ?equipment <http://vivo.colorado.edu/individual/ws_eqspin_ID> ?id .
+Where {  
+ ?equipment <https://experts.colorado.edu/individual/ws_eqspin_ID> ?id .
  OPTIONAL {
-   ?equipment <http://vivo.colorado.edu/individual/ws_eqspin_LABELID> ?labelId .
-   BIND(URI(CONCAT("http://vivo.colorado.edu/individual/spinId_", ?labelId)) AS ?subject)
+   ?equipment <https://experts.colorado.edu/individual/ws_eqspin_LABELID> ?labelId .
+   BIND(URI(CONCAT("https://experts.colorado.edu/individual/spinId_", ?labelId)) AS ?subject)
  }
 }

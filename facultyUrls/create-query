@@ -5,19 +5,19 @@ PREFIX core: <http://vivoweb.org/ontology/core#>
 PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#> 
 PREFIX fn: <http://www.w3.org/2005/xpath-functions#>   
 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
-PREFIX cub: <http://vivo.colorado.edu/individual/>
+PREFIX cub: <https://experts.colorado.edu/individual/>
 
-CONSTRUCT { 
+Construct { 
  ?vcard vcard:hasURL ?vcard_url .
  ?vcard_url vcard:url ?url .
  ?vcard_url rdf:type vcard:URL .  
  ?vcard_url rdfs:label "Webpage" .  
  ?vcard_url vitro:linkDisplayRank "-1" . } 
-WHERE { 
+Where { 
  ?link a cub:URLS .
  ?link cub:ws_fm2url_WEBPAGEURL ?url .
  ?link cub:ws_fm2url_FISIDREAL ?fisId .
  BIND(IRI(?personIRI) AS ?person) .
- BIND(URI(CONCAT('http://vivo.colorado.edu/individual/vcard_', ?fisId)) AS ?vcard)
- BIND(URI(CONCAT('http://vivo.colorado.edu/individual/vcard_url_',?fisId)) AS ?vcard_url)
+ BIND(URI(CONCAT('https://experts.colorado.edu/individual/vcard_', ?fisId)) AS ?vcard)
+ BIND(URI(CONCAT('https://experts.colorado.edu/individual/vcard_url_',?fisId)) AS ?vcard_url)
 }

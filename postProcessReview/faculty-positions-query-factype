@@ -1,0 +1,6 @@
+SELECT count(*)
+WHERE
+{
+      ?person a <http://vivoweb.org/ontology/core#FacultyMember>
+}
+

@@ -2,10 +2,10 @@ PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#>   
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>   
 PREFIX core: <http://vivoweb.org/ontology/core#>   
-PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#>   
+PREFIX vlocal: <https://experts.colorado.edu/ontology/vivo-fis#>   
 PREFIX fn: <http://www.w3.org/2005/xpath-functions#>    
 PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#>
-PREFIX cub: <http://vivo.colorado.edu/individual/>
+PREFIX cub: <https://experts.colorado.edu/individual/>
 
 Construct  {    
   ?person rdf:type core:FacultyMember .  

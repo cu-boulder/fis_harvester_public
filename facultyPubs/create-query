@@ -1,0 +1,68 @@
+PREFIX core: <http://vivoweb.org/ontology/core#>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX cub: <https://experts.colorado.edu/individual/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pubs: <https://experts.colorado.edu/ontology/pubs#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+
+CONSTRUCT {
+ ?pub rdf:type bibo:Document .
+ ?pub rdfs:label ?title .
+ ?pub rdf:type ?type .
+ ?pub <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> ?type .
+ ?pub a <http://purl.obolibrary.org/obo/IAO_0000030> .
+ ?pub core:dateTimeValue ?pubdate .
+ ?pub bibo:doi ?doi .
+ ?pub pubs:citedAuthors ?authors .
+ ?pub bibo:abstract ?abstract .
+ ?pub core:hasPublicationVenue ?journal .
+ ?journal core:publicationVenueFor ?pub .
+ ?pubdate a core:DateTimeValue .
+ ?pubdate <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> core:dateTimeValue .
+ ?pubdate core:dateTimePrecision core:yearMonthDayPrecision .
+ ?pubdate core:dateTime ?date.
+}
+WHERE  {
+ ?work cub:ws_fpub_ID ?pub_id .
+ ?work cub:ws_fpub_TITLE ?title .
+ bind(IRI(CONCAT('https://experts.colorado.edu/individual/pubid_', ?pub_id)) as ?pub)
+
+ OPTIONAL {
+          ?work cub:ws_fpub_ABSTRACT ?abstract .
+ }
+ OPTIONAL {
+          ?work cub:ws_fpub_AUTHORS ?authors.
+ }
+ OPTIONAL {
+          ?work cub:ws_fpub_DOI ?doi .
+          }
+ OPTIONAL {
+          ?work cub:ws_fpub_JOURNALID ?j.
+          bind(IRI(CONCAT('https://experts.colorado.edu/individual/journal_', ?j)) as ?journal)
+          }
+ OPTIONAL {
+          ?work cub:ws_fpub_ELEMENTS_DERIVED_PUB_DATE ?d.
+          bind(IRI(CONCAT('https://experts.colorado.edu/individual/pubdate_', ?d)) as ?pubdate)
+          bind(STRDT(?d, xsd:dateTime) as ?date)
+          }
+ 
+ OPTIONAL { ?work cub:ws_fpub_TYPE "Journal article" .
+            BIND(URI(obo:IAO_0000013) AS ?type)
+          }
+ OPTIONAL { ?work cub:ws_fpub_TYPE "Book" .
+            BIND(URI(bibo:Book) AS ?type)
+          }
+ OPTIONAL { ?work cub:ws_fpub_TYPE "Chapter" .
+            BIND(URI(bibo:Chapter) AS ?type)
+          }
+ OPTIONAL { ?work cub:ws_fpub_TYPE "Conference Proceeding" .
+            BIND(URI(bibo:ConferencePaper) AS ?type)
+          }
+ OPTIONAL { ?work cub:ws_fpub_TYPE "Scholarly edition" .
+            BIND(URI(bibo:EditedBook) AS ?type)
+          } 
+}

@@ -88,7 +88,7 @@
 <%      Examples:                                                                                                       %>
 <%          <Param name="scoreOverride">modelName=http://vitro.mannlib.cornell.edu/default/vitro-kb-2</Param>           %>
 <%          <Param name="scoreOverride">modelName=mySimpleModelName</Param>                                             %>
-<%          <Param name="scoreOverride">modelName=http://vivo.localinstitution.edu/models/my-uri-model</Param>          %>
+<%          <Param name="scoreOverride">modelName=http://experts.localinstitution.edu/models/my-uri-model</Param>          %>
 <%  ===                                                                                                                 %>
 <%                                                                                                                      %>
 <%  dbUser - the DB username to use                                                                                     %>

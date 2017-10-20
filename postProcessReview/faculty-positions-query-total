@@ -1,0 +1,6 @@
+SELECT count(*)
+WHERE
+{
+      ?position <http://vivoweb.org/ontology/core#positionForPerson> ?person
+}
+

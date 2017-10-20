@@ -1,0 +1,6 @@
+SELECT count(*)
+WHERE
+{
+      ?dept a <http://vivoweb.org/ontology/core#Museum>
+}
+

@@ -87,7 +87,7 @@ cp data/constructed-data ../backups/facultyRegions-data-last
 
 #Output some counts
 
-FAC=`cat data/constructed-data | grep '<rdf:Description rdf:about="http://vivo.uccs.edu/fisid_' | wc -l`
+FAC=`cat data/constructed-data | grep '<rdf:Description rdf:about="https://experts.colorado.edu/individual/fisid_' | wc -l`
 REGIONS=`cat data/constructed-data | grep 'geographicFocus rdf:resource="http://aims.fao.org/aos/geopolitical.owl#' | wc -l`
 
 

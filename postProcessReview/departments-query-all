@@ -1,0 +1,14 @@
+SELECT count(*)
+WHERE
+{
+      { ?dept a <http://vivoweb.org/ontology/core#AcademicDepartment> }
+      UNION { ?dept a <http://vivoweb.org/ontology/core#Department> } 
+      UNION { ?dept a <http://vivoweb.org/ontology/core#Center> } 
+      UNION { ?dept a <http://vivoweb.org/ontology/core#College> } 
+      UNION { ?dept a <http://vivoweb.org/ontology/core#Institute> } 
+      UNION { ?dept a <http://vivoweb.org/ontology/core#Library> } 
+      UNION { ?dept a <http://vivoweb.org/ontology/core#Museum> } 
+      UNION { ?dept a <http://vivoweb.org/ontology/core#Program> } 
+      UNION { ?dept a <http://vivoweb.org/ontology/core#School> } 
+}
+

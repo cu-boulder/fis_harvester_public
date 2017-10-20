@@ -1,14 +1,19 @@
 PREFIX core: <http://vivoweb.org/ontology/core#>  
 PREFIX fn: <http://www.w3.org/2005/xpath-functions#>  
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>   
-PREFIX cub: <http://vivo.colorado.edu/individual/>
+PREFIX cub: <https://experts.colorado.edu/individual/>
 
-CONSTRUCT {    
+Construct {    
  ?person core:geographicFocus ?country . 
  ?country core:geographicFocusOf ?person .  
  ?country rdf:type core:GeographicRegion .  }  
-WHERE  {      
+Where  {      
  ?person cub:ws_fm2c_URI ?countryURI .
- ?country a <http://aims.fao.org/aos/geopolitical.owl#self_governing> .      
+ {
+ ?country a <http://aims.fao.org/aos/geopolitical.owl#self_governing> .
+ } UNION
+ {
+ ?country a <http://aims.fao.org/aos/geopolitical.owl#non_self_governing> .
+ }
  FILTER (fn:matches(?countryURI, str(?country)))  
 }

@@ -84,8 +84,8 @@ cp data/constructed-data ../backups/facultySubjectAreas-data-$DATE
 cp data/constructed-data ../backups/facultySubjectAreas-data-last
 
 #Output some counts
-FAC=`cat data/constructed-data | grep '<rdf:Description rdf:about="http://vivo.colorado.edu/fsid_' | wc -l`
-TERMS=`cat data/constructed-data | grep 'hasResearchArea rdf:resource="http://vivo.colorado.edu/spinid_' | wc -l`
+FAC=`cat data/constructed-data | grep '<rdf:Description rdf:about="https://experts.colorado.edu/fsid_' | wc -l`
+TERMS=`cat data/constructed-data | grep 'hasResearchArea rdf:resource="https://experts.colorado.edu/spinid_' | wc -l`
 
 echo "Imported $TERMS Terms for $FAC Faculty Members"
 

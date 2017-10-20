@@ -1,0 +1,23 @@
+PREFIX core: <http://vivoweb.org/ontology/core#>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX cub: <https://experts.colorado.edu/individual/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+ ?auth rdf:type core:Authorship .
+ ?auth <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#mostSpecificType> core:Authorship .
+ ?auth core:relates ?pub .
+ ?pub core:relatedBy ?auth .
+ ?auth core:relates ?pers .
+ ?pers core:relatedBy ?auth .
+}
+WHERE  {
+ ?work cub:ws_fauth_FIS_ID ?person .
+ ?work cub:ws_fauth_PUB_ID ?pub_id .
+ bind(IRI(CONCAT('https://experts.colorado.edu/individual/fisid_', ?person)) as ?pers)
+ bind(IRI(CONCAT('https://experts.colorado.edu/individual/pubid_', ?pub_id)) as ?pub)
+ bind(IRI(CONCAT('https://experts.colorado.edu/individual/authorship_', ?person, ?pub_id)) as ?auth)
+}

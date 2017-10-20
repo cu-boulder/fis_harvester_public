@@ -14,7 +14,7 @@
 	
 	
 	<!-- Namespace -->
-	<Param name="namespaceEtc">http://vivo.colorado.edu/individual/</Param>
+	<Param name="namespaceEtc">https://experts.colorado.edu/</Param>
 	<Param name="pattern">url</Param>
 	
 	<!--  OPTIONS -->

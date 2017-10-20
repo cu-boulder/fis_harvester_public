@@ -1,0 +1,7 @@
+SELECT count(*)
+WHERE
+{
+      ?url <http://vivoweb.org/ontology/core#webpageOf> ?person . 
+      ?person a <http://xmlns.com/foaf/0.1/Person>
+}
+

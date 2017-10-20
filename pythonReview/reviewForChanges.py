@@ -7,6 +7,7 @@ def reviewForChanges(oldFilePath, newFilePath, institution, fileRunMap):
         for line in f:
             (file, runFolder, order) = line.split(',')
             runToFile[int(order)] = [file,runFolder]
+    print "Examining diffs in the following data"
     print runToFile
        
     reviewFolderForChanges(oldFilePath, newFilePath, institution, runToFile)
@@ -21,13 +22,16 @@ def reviewFolderForChanges(oldFilePath, newFilePath, institution, runToFile):
     changedFiles=[ ]
     overView="Changes to the Following Files: \n"
     for newFile in newFiles:
+        print "Examining file: ", newFile
         if newFile in oldFiles:
             status = reviewFileForChanges(oldFilePath+newFile, newFilePath+newFile)
             if (status.startswith("Changes in file")):
+              print "Changes in file: ", newFile
               changedFiles.append(newFile)  
               overView+= "  * " + newFile + " \n"
             fileStatus+=status
         else:
+            print "New file: ", newFile
             fileStatus += "New File Found: " + newFile + "\n"
             changedFiles.append(newFile)  
             
@@ -35,12 +39,10 @@ def reviewFolderForChanges(oldFilePath, newFilePath, institution, runToFile):
         if oldFile not in newFiles:
             fileStatus += "File Missing: " + newFile + "\n"
     
-
     for i in range(1,len(runToFile)+1):
         if runToFile[i][0] in changedFiles:
             subprocess.call([runToFile[i][1]+"/run.sh"],
                             cwd=runToFile[i][1], stdout=open(os.devnull, 'wb'));
-
 
 
 def reviewFileForChanges(oldFile, newFile):

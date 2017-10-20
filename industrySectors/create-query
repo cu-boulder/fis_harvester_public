@@ -17,16 +17,15 @@ PREFIX scires: <http://vivoweb.org/ontology/scientific-research#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
 PREFIX j.1: <http://vitro.mannlib.cornell.edu/ns/vitro/public#> 
 PREFIX core: <http://vivoweb.org/ontology/core#> 
-PREFIX vlocal: <http://vivo.colorado.edu/ontology/vivo-fis#>  
+PREFIX vlocal: <https://experts.colorado.edu/ontology/vivo-fis#>  
 PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 PREFIX arg: <http://purl.obolibrary.org/obo/>
-PREFIX equip: <http://vivo.colorado.edu/ontology/equipment#>
+PREFIX equip: <https://experts.colorado.edu/ontology/equipment#>
 
-CONSTRUCT {
+Construct {
  ?sector rdf:type vlocal:IndustrySector .
  ?sector rdfs:label ?label .
- ?sector vitro:mostSpecificType vlocal:IndustrySector .
 }
-WHERE {  
-   ?sector <http://vivo.colorado.edu/individual/ws_sectors_LABEL> ?label .
+Where {  
+   ?sector <https://experts.colorado.edu/individual/ws_sectors_LABEL> ?label .
 }

@@ -1,4 +1,4 @@
-ALTER SESSION SET CURRENT_SCHEMA=Schema_Name;
+ALTER SESSION SET CURRENT_SCHEMA=Faculty;
 
 declare
   l_cursor sys_refcursor;
@@ -119,6 +119,47 @@ begin
                          p_ctl => 'NO',
                          p_header => 'YES');
   dbms_output.put_line(to_char(l_rows) || ' faculty member URLs extracted');
+
+  l_cursor := vivo.getAwardRecipients();
+  l_rows := unloader.run(p_cursor => l_cursor,
+                         p_tname => NULL,
+                         p_terminator => NULL,
+                         p_dir => '/tmp',
+                         p_filename => 'fis_faculty_member_awardrecipients',
+                         p_ctl => 'NO',
+                         p_header => 'YES');
+  dbms_output.put_line(to_char(l_rows) || ' faculty member award recipients extracted');
+
+  l_cursor := vivo.getAwards();
+  l_rows := unloader.run(p_cursor => l_cursor,
+                         p_tname => NULL,
+                         p_terminator => NULL,
+                         p_dir => '/tmp',
+                         p_filename => 'fis_faculty_member_awards',
+                         p_ctl => 'NO',
+                         p_header => 'YES');
+  dbms_output.put_line(to_char(l_rows) || ' faculty member Awards extracted');
+
+  l_cursor := vivo.getAwardOrgs();
+  l_rows := unloader.run(p_cursor => l_cursor,
+                         p_tname => NULL,
+                         p_terminator => NULL,
+                         p_dir => '/tmp',
+                         p_filename => 'fis_faculty_member_award_orgs',
+                         p_ctl => 'NO',
+                         p_header => 'YES');
+  dbms_output.put_line(to_char(l_rows) || ' faculty member Award Orgs extracted');
+
+  l_cursor := vivo.getVitaURLs();
+  l_rows := unloader.run(p_cursor => l_cursor,
+                         p_tname => NULL,
+                         p_terminator => NULL,
+                         p_dir => '/tmp',
+                         p_filename => 'fis_faculty_member_vita',
+                         p_ctl => 'NO',
+                         p_header => 'YES');
+  dbms_output.put_line(to_char(l_rows) || ' faculty member vita extracted');
+
 end;
 
 /

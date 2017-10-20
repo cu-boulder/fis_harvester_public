@@ -1,0 +1,18 @@
+PREFIX core: <http://vivoweb.org/ontology/core#>
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX cub: <https://experts.colorado.edu/individual/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+
+Construct {
+ ?journal <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> bibo:Journal .
+ ?journal <http://www.w3.org/2000/01/rdf-schema#label> ?label .
+ ?journal core:freetextKeyword ?keywords 
+}
+Where  {
+ ?journal cub:ws_jour_TITLE ?label 
+  OPTIONAL {
+          ?journal cub:ws_jour_KEYWORDS ?keywords 
+  }
+
+}
